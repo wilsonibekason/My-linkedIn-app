@@ -156,6 +156,9 @@ const Header = () => {
       width: 100px;
       height: 40px;
       font-size: 16px;
+      text-align: center;
+      transition-duration: 500ms;
+      display: none;
 
    `;
 
