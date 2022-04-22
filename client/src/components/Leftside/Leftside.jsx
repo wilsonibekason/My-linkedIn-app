@@ -65,9 +65,88 @@ const Leftside = (props) => {
 
      const Widget = styled.div`
      border-bottom: 1px solid rgba(0,0,0,.9);
+     padding-top: 12px;
+     padding-bottom: 12px;
+
+      & > a{
+          text-decoration: none;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 4px 12px;
+
+          &:hover{
+              background-color: rgba(0,0,0,.05);
+          }
+          div{
+              display: flex;
+              flex-direction: column;
+              text-align: left;
+              span{
+                  font-size: 12px;
+                  line-height: 1.12;
+                  &:first-child{
+                      color: rgba(0,0,0,.5);
+                  }
+                  &:nth-child(2){
+                      color: rgba(0,0,0,.5);
+                  }
+              }
+          }
+      }
      `;
 
      const Item = styled.a`
+     border-color: rgba(0,0,0,0.6);
+     text-align: center;
+     padding: 12px;
+     font-size: 12px;
+     display: block;
+
+     span{
+         display: flex;
+         align-items: center;
+         color: rgba(0,0,0,06);
+         svg{
+             color: rgba(0,0,0,0.6)
+         }
+     }
+
+     &:hover{
+         background-color: rgba(0,0,0,0.1);
+     }
+     `;
+
+     const CommunityCard = styled(Artside)`
+     padding: 8px 0 0 ;
+     text-align: left;
+     display: flex;
+     flex-direction: column;
+     a{
+         color: rgba(0,0,0,.9);
+         padding: 4px 12px 4px 12px;
+         text-decoration: none;
+         font-size: 12px;
+    
+
+     &:hover{
+         color: rgba(0,0,3,.01)
+     }
+
+     span{
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+     }
+     &:last-child{
+         color: rgba(0,0,0,.6);
+         border-top: 1px solid #d5cec2;
+         padding: 12px;
+         :hover{
+             background-color: rgba(0,0,0,.6)
+         }
+     }
+     } 
      `;
 
   return (
@@ -82,20 +161,41 @@ const Leftside = (props) => {
                <a><Addphototext>Add a photo</Addphototext></a>
            </Userinfo>
            <Widget>
-               <a href="#">
+               <a>
                   <div>
                   <span>Connections</span>
                    <span>Connections</span>
                   </div>
                   <img src="images/widget-icon.svg" alt="" />
                </a>
+               </Widget>
                <Item>
                    <span>
                        <img src="images/item-icon.svg" alt="" />
+                       dfjj
                    </span>
                </Item>
-           </Widget>
        </Artside>
+       <CommunityCard>
+           <a>
+               <span>Groups</span>
+           </a>
+           <a href="">
+               <span>Events
+                   <img src="images/plus-icon.svg" alt="" />
+               </span>
+           </a>
+           <a href="">
+               <span>
+                   follow Hash Tag
+               </span>
+           </a>
+           <a href="">
+               <span>
+                   Discover More
+               </span>
+           </a>
+       </CommunityCard>
     </Container>
   )
 }
