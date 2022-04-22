@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import Leftside from '../Leftside/Leftside';
+import Main from '../Main/Main';
+import Rightside from '../Rightside/Rightside';
 
 const Home = () => {
     const Container = styled.div`
@@ -62,9 +65,9 @@ const Home = () => {
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur, totam.</p>
         </Section>
         <Layout>
-            <div>ddwwe</div>
-            <div>i</div>
-            <div>jj</div>
+            <div><Leftside/></div>
+            <div><Main/></div>
+            <div><Rightside/></div>
         </Layout>
     </Container>
   )
