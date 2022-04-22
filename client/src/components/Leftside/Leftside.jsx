@@ -130,7 +130,7 @@ const Leftside = (props) => {
     
 
      &:hover{
-         color: rgba(0,0,3,.01)
+         color: rgba(0,0,0,.5)
      }
 
      span{
@@ -145,7 +145,7 @@ const Leftside = (props) => {
          :hover{
              background-color: rgba(0,0,0,.6)
          }
-     }
+       }
      } 
      `;
 
