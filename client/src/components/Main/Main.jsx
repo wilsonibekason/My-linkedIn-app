@@ -126,9 +126,46 @@ const Main = (props) => {
     }
   `;
 
-  const Description = styled.div``;
+  const Description = styled.div`
+    padding: 0 16px;
+    overflow: hidden;
+    color: rgba(0, 0, 0, 0.6);
+    text-align: left;
+    font-size: 16px;
+  `;
 
-  const SharedImage = styled.div``;
+  const SharedImage = styled.div`
+    margin-top: 8px;
+    width: 100%;
+    display: block;
+    position: relative;
+    background-color: #f9fafb;
+    img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  `;
+
+  const Socialcount = styled.ul`
+    line-height: 1.2;
+    display: flex;
+    align-items: flex-start;
+    overflow: auto;
+    padding: 8px 0;
+    margin: 0 16px;
+    border-bottom: 1px solid #e9e5df;
+    list-style: none;
+    li {
+      margin-right: 5px;
+      font-size: 10px;
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+    }
+  `;
 
   return (
     <Container>
@@ -179,6 +216,24 @@ const Main = (props) => {
               <img src="images/user.svg" alt="" />
             </a>
           </SharedImage>
+          <Socialcount>
+            <li>
+              <button>
+                <img
+                  src="https://static-exp1.licdn.com/sc/h/d310t2g24pvdy4pt1jkedo4yb"
+                  alt=""
+                />
+                <img
+                  src="https://static-exp1.licdn.com/sc/h/d310t2g24pvdy4pt1jkedo4yb"
+                  alt=""
+                />
+                <span>75</span>
+              </button>
+            </li>
+            <li>
+              <a> 2 comments</a>
+            </li>
+          </Socialcount>
         </Article>
       </div>
     </Container>
