@@ -86,7 +86,49 @@ const Main = (props) => {
     margin-bottom: 8px;
     align-items: center;
     display: flex;
+    a {
+      margin-right: 12px;
+      flex-grow: 1;
+      overflow: hidden;
+      display: flex;
+      text-decoration: none;
+      img {
+        width: 48px;
+        height: 48px;
+      }
+      & > div {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        flex-basis: 0;
+        margin-left: 8px;
+        overflow: hidden;
+        span {
+          text-align: left;
+          &:first-child {
+            font-size: 14px;
+            font-weight: 700;
+          }
+          &:nth-child(n + 1) {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.6);
+          }
+        }
+      }
+    }
+    button {
+      position: absolute;
+      background: transparent;
+      right: 12px;
+      top: 0;
+      border: none;
+      outline: none;
+    }
   `;
+
+  const Description = styled.div``;
+
+  const SharedImage = styled.div``;
 
   return (
     <Container>
@@ -120,16 +162,23 @@ const Main = (props) => {
           <SharedActor>
             <a>
               <img src="images/user.svg" alt="" />
-              <div></div>
-              <span>Title</span>
-              <span>Title</span>
-              <span>Title</span>
+              <div>
+                <span>Title</span>
+                <span>Title</span>
+                <span>Title</span>
+              </div>
             </a>
             <button>
               {/* ellipses button */}
               <img src="images/plus-icon.svg" alt="" />
             </button>
           </SharedActor>
+          <Description>description</Description>
+          <SharedImage>
+            <a>
+              <img src="images/user.svg" alt="" />
+            </a>
+          </SharedImage>
         </Article>
       </div>
     </Container>
