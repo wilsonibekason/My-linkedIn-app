@@ -158,11 +158,31 @@ const Main = (props) => {
     list-style: none;
     li {
       margin-right: 5px;
-      font-size: 10px;
+      font-size: 0.9rem;
       button {
         display: flex;
         align-items: center;
         justify-content: space-around;
+      }
+    }
+  `;
+
+  const Socialaction = styled.div`
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0;
+    min-height: 40px;
+    padding: 4px 6px;
+    button {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px;
+      color: #0a6602;
+      @media screen and (min-width: 768px) {
+        span {
+          margin-right: 8px;
+        }
       }
     }
   `;
@@ -231,9 +251,27 @@ const Main = (props) => {
               </button>
             </li>
             <li>
-              <a> 2 comments</a>
+              <a> 2 comment(s)</a>
             </li>
           </Socialcount>
+          <Socialaction>
+            <button>
+              <img src="images/plus-icon.svg" alt="" />
+              <span>Like</span>
+            </button>
+            <button>
+              <img src="images/plus-icon.svg" alt="" />
+              <span>Comment</span>
+            </button>
+            <button>
+              <img src="images/plus-icon.svg" alt="" />
+              <span>Share</span>
+            </button>
+            <button>
+              <img src="images/plus-icon.svg" alt="" />
+              <span>Save</span>
+            </button>
+          </Socialaction>
         </Article>
       </div>
     </Container>
