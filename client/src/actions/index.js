@@ -1,6 +1,7 @@
 import { auth, provider } from "../firebase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { SET_USER } from "./actionType";
+import { async } from "@firebase/util";
 
 export const setUser = (payload) => ({
   type: SET_USER,
@@ -24,5 +25,15 @@ export function signInAPI() {
         const email = error.email;
         const credential = GoogleAuthProvider.credentialFromError(error);
       });
+  };
+}
+
+export function getUserAuth() {
+  return (dispatch) => {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        dispatch(setUser(user));
+      }
+    });
   };
 }
