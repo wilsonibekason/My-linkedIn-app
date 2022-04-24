@@ -6,18 +6,6 @@ export const setUser = (payload) => ({
   type: SET_USER,
   user: payload,
 });
-// export function signInAPI() {
-//   return (dispatch) => {
-//     auth
-//       .signInWithPopup(provider)
-//       .then((payload) => {
-//         console.log(payload);
-//       })
-//       .catch((error) =>
-//         alert("the error occured in actions folder " + error.message)
-//       );
-//   };
-// }
 
 export function signInAPI() {
   return (dispatch) => {

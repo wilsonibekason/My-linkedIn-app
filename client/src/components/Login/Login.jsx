@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { signInAPI } from "../../actions";
+import { Navigate } from "react-router-dom";
 
 const Container = styled.div`
   padding: 0;
@@ -139,6 +140,7 @@ const Google = styled.button`
 const Login = (props) => {
   return (
     <Container>
+      {props.user && <Navigate to="/home" replace={true} />}
       <Nav>
         <a href="">
           <img src="../../images/Login-logo.svg" alt="" />
@@ -165,7 +167,9 @@ const Login = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    user: state.userState.user,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => ({
@@ -173,5 +177,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
-
 // export default Login
