@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import PostModal from "../../PostModal/PostModal";
 
 const Main = (props) => {
+  const [showModal, setShowModal] = useState("close");
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (e.target !== e.currentTarget) {
+      return;
+    }
+    switch (showModal) {
+      case "open":
+        setShowModal("close");
+        break;
+      case "close":
+        setShowModal("open");
+        break;
+      default:
+        setShowModal("close");
+        break;
+    }
+  };
   const Container = styled.div`
     grid-area: Main;
   `;
@@ -193,7 +213,7 @@ const Main = (props) => {
         rkifr
         <div>
           <img src="images/user.svg" alt="" />
-          <button>Start A Post </button>
+          <button onClick={handleClick}>Start A Post </button>
         </div>
         <div>
           <button>
@@ -274,6 +294,7 @@ const Main = (props) => {
           </Socialaction>
         </Article>
       </div>
+      <PostModal showModal={showModal} handleClick={handleClick} />
     </Container>
   );
 };
