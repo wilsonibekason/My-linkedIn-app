@@ -3,6 +3,10 @@ import styled from "styled-components";
 
 const PostModal = (props) => {
   const [editorText, setEditorText] = useState("");
+  const reset = (e) => {
+    setEditorText(" ");
+    props.handleClick(e);
+  };
   const Container = styled.div`
     position: fixed;
     top: 0;
@@ -11,6 +15,7 @@ const PostModal = (props) => {
     left: 0;
     z-index: 9999;
     color: black;
+    animation: fadeIn 300;
     background-color: rgba(0, 0, 0, 0.9);
   `;
 
@@ -43,7 +48,8 @@ const PostModal = (props) => {
       height: 40px;
       width: 40px;
       min-width: auto;
-      svg {
+      svg,
+      img {
         pointer-events: none;
       }
     }
@@ -112,6 +118,8 @@ const PostModal = (props) => {
     padding: 0.25em 1em;
     border: 2px solid palevioletred;
     border-radius: 10px;
+    background-color: ${(props) => (props.disabled ? "black" : "tomato")};
+    color: ${(props) => (props.disabled ? "white" : "white")};
     &:hover {
       color: tomato;
       border: 2px solid tomato;
@@ -134,50 +142,56 @@ const PostModal = (props) => {
   `;
 
   return (
-    <Container>
-      <Content>
-        <Header>
-          <h2>Create a post</h2>
-          <button>
-            <img src="/images/plus-icon.svg" alt="" />
-          </button>
-        </Header>
-        <SharedContent>
-          <UserInfo>
-            <img src="images/user.svg" alt="" />
-            <span>User</span>
-          </UserInfo>
-          <Editor>
-            <textarea
-              value={editorText}
-              onChange={(e) => setEditorText(e.target.value)}
-              //cols="30"
-              //rows="10"
-              placeholder="what do you want to post"
-              autoFocus={true}
-            ></textarea>
-          </Editor>
-        </SharedContent>
-        <SharedCreation>
-          <Attachasset>
-            <AssetBtn>
-              <img src="images/plus-icon.svg" alt="" />
-            </AssetBtn>
-            <AssetBtn>
-              <img src="images/plus-icon.svg" alt="" />
-            </AssetBtn>
-          </Attachasset>
+    <>
+      {props.showModal === "open" && (
+        <Container>
+          <Content>
+            <Header>
+              <h2>Create a post</h2>
+              <button onClick={(e) => reset(e)}>
+                <img src="/images/plus-icon.svg" alt="" />
+              </button>
+            </Header>
+            <SharedContent>
+              <UserInfo>
+                <img src="images/user.svg" alt="" />
+                <span>User</span>
+              </UserInfo>
+              <Editor>
+                <textarea
+                  value={editorText}
+                  onChange={(e) => setEditorText(e.target.value)}
+                  //cols="30"
+                  //rows="10"
+                  placeholder="what do you want to post"
+                  autoFocus={true}
+                ></textarea>
+              </Editor>
+            </SharedContent>
+            <SharedCreation>
+              <Attachasset>
+                <AssetBtn>
+                  <img src="images/plus-icon.svg" alt="" />
+                </AssetBtn>
+                <AssetBtn>
+                  <img src="images/plus-icon.svg" alt="" />
+                </AssetBtn>
+              </Attachasset>
 
-          <SharedComment>
-            <AssetBtn>
-              <img src="" alt="" />
-              Add bro
-            </AssetBtn>
-          </SharedComment>
-          <PostButton>Post</PostButton>
-        </SharedCreation>
-      </Content>
-    </Container>
+              <SharedComment>
+                <AssetBtn>
+                  <img src="" alt="" />
+                  Add bro
+                </AssetBtn>
+              </SharedComment>
+              <PostButton disabled={!editorText ? true : false}>
+                Post
+              </PostButton>
+            </SharedCreation>
+          </Content>
+        </Container>
+      )}
+    </>
   );
 };
 
